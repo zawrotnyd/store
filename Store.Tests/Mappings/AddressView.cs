@@ -1,0 +1,1 @@
+public record AddressView(int id, string country, string address);

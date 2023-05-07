@@ -1,0 +1,1 @@
+public record Result(Boolean ok, string js);

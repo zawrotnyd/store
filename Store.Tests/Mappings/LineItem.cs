@@ -1,0 +1,1 @@
+public record LineItem(int id, int invoice_id, int item_id, int quantity, decimal price);

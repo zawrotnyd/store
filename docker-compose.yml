@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    postgres:
+        environment:
+            - POSTGRES_PASSWORD=mysecretpassword
+            - POSTGRES_USER=dude
+            - POSTGRES_DB=dude
+        ports:
+            - '127.0.0.1:5432:5432'
+        container_name: pg_test
+        image: postgres
+        volumes: 
+          - ./scripts:/docker-entrypoint-initdb.d
