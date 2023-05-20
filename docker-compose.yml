@@ -3,11 +3,17 @@ services:
     postgres:
         environment:
             - POSTGRES_PASSWORD=mysecretpassword
-            - POSTGRES_USER=dude
             - POSTGRES_DB=dude
         ports:
             - '127.0.0.1:5432:5432'
         container_name: pg_test
         image: postgres
         volumes: 
-          - ./scripts:/docker-entrypoint-initdb.d
+            - ./views:/views
+            - ./functions:/functions
+            - ./triggers:/triggers
+            - ./api:/api
+            - ./tables.sql:/tables.sql
+            - ./test_data.sql:/test_data.sql
+            - ./init.sh:/docker-entrypoint-initdb.d/init.sh
+            - ./reset.sh:/docker-entrypoint-initdb.d/reset.sh

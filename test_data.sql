@@ -4,7 +4,8 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-SET SESSION AUTHORIZATION DEFAULT;
+SET SESSION AUTHORIZATION postgres;
+SET session_replication_role = replica;
 
 INSERT INTO countries (code, name) VALUES ('AD', 'Andorra');
 INSERT INTO countries (code, name) VALUES ('AE', 'United Arab Emirates');
@@ -328,3 +329,4 @@ SELECT pg_catalog.setval('items_id_seq', 4, true);
 SELECT pg_catalog.setval('lineitems_id_seq', 4, true);
 SELECT pg_catalog.setval('shipchart_id_seq', 16, true);
 
+SET session_replication_role = origin;
